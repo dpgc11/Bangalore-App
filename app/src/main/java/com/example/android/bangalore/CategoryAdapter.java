@@ -39,11 +39,11 @@ public class CategoryAdapter extends FragmentPagerAdapter {
             case(1):
                 return "Entertainment";
             case(2):
-                return "Aesthetic Buildings";
+                return "Architecture";
             case(3):
                 return "Restaurants";
             default:
-                return "Top Attractions";
+                return "Attractions";
         }
     }
 }

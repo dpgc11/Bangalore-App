@@ -8,8 +8,31 @@ public class Place {
 
     private String name;
     private String location;
-    private long phone;
-    private int imageResourceId;
+    private String phone = "-1";
+    private String cost = "-1";
+    private int imageResourceId = -1;
+
+    public Place(String name, String location, int imageResourceId) {
+        this.name = name;
+        this.location = location;
+        this.imageResourceId = imageResourceId;
+    }
+
+    public Place(String name, String location, String cost) {
+        this.name = name;
+        this.location = location;
+        this.cost = cost;
+    }
+
+    public Place(String name, String location, String cost, String phone) {
+        this(name, location, cost);
+        this.phone = phone;
+    }
+
+    public Place(String name, String location, String cost, String phone, int imageResourceId) {
+        this(name, location, cost, phone);
+        this.imageResourceId = imageResourceId;
+    }
 
     public String getName() {
         return name;
@@ -19,7 +42,7 @@ public class Place {
         return location;
     }
 
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
@@ -27,19 +50,23 @@ public class Place {
         return imageResourceId;
     }
 
-    public Place(String name, String location) {
-        this.name = name;
-        this.location = location;
+    public String getCost() {
+        return cost;
     }
 
-    public Place(String name, String location, long phone) {
-        this(name, location);
-        this.phone = phone;
+    public boolean hasCost() {
+        return !cost.equals("-1");
     }
 
-    public Place(String name, String location, long phone, int imageResourceId) {
-        this(name, location, phone);
-        this.imageResourceId = imageResourceId;
+    public boolean hasImage() {
+        if (imageResourceId != -1) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hasPhone() {
+        return !phone.equals("-1");
     }
 
 
